@@ -1,8 +1,5 @@
-clean:
-	rm -f *.class
-
-build:
-	javac HelloWorld.java
+all:
+	javac HelloJava.java
 
 test:
-	java -classpath . HelloWorld
+	java -cp . HelloJava
