@@ -6,7 +6,15 @@ import javax.swing.event.*;
 class AttributeWindow extends JFrame {
 
     public static AttributePicker makeAttribute(String str){
-	return new AttributePicker( str );
+	final AttributePicker picker = new AttributePicker( str );
+
+	picker.model.addChangeListener( new ChangeListener() {
+            public void stateChanged( ChangeEvent e ) {
+	        System.out.println(picker.attributeText);
+	    } // END stateChanged()
+	}); // END model.AddChangeListener()
+
+	return picker;
     }
 
     public AttributeWindow(){
@@ -15,13 +23,13 @@ class AttributeWindow extends JFrame {
         listPane.setLayout(new BoxLayout(listPane, BoxLayout.LINE_AXIS));
 	JLabel label = new JLabel( "Total Stats:", JLabel.CENTER );
 	JLabel label2 = new JLabel( "15", JLabel.CENTER );
-	//AttributePicker strPicker = new AttributePicker( "STR" );
+
 	AttributePicker strPicker = makeAttribute("STR");
-	AttributePicker dexPicker = new AttributePicker( "DEX" );
-	AttributePicker conPicker = new AttributePicker( "CON" );
-	AttributePicker intPicker = new AttributePicker( "INT" );
-	AttributePicker wisPicker = new AttributePicker( "WIS" );
-	AttributePicker chaPicker = new AttributePicker( "CHA" );
+	AttributePicker dexPicker = makeAttribute("DEX");
+	AttributePicker conPicker = makeAttribute("CON");
+	AttributePicker intPicker = makeAttribute("INT");
+	AttributePicker wisPicker = makeAttribute("WIS");
+	AttributePicker chaPicker = makeAttribute("CHA");
 
 	frame.add(listPane);
 	listPane.add(label);

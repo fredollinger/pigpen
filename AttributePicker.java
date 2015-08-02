@@ -5,10 +5,11 @@ import javax.swing.event.*;
 
 class AttributePicker extends JPanel {
 	//implements ChangeListener {
+	//
     
-    private SpinnerNumberModel model;
-    private JSpinner spinner;
     public String attributeText;
+    public SpinnerNumberModel model;
+    private JSpinner spinner;
 
     public AttributePicker(String str){
         attributeText=str;
@@ -19,11 +20,13 @@ class AttributePicker extends JPanel {
         add(label);
         add(spinner);
 
+/*
 	model.addChangeListener( new ChangeListener() {
             public void stateChanged( ChangeEvent e ) {
 	        System.out.println(attributeText);
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
+*/
 
     } // END AttributePicker()
 
