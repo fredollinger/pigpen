@@ -1,8 +1,9 @@
 APP=StatsGenerater
 JAVAC=/opt/java/bin/javac
+JAVA_FILES=$(APP).java AttributePicker.java AttributeWindow.java
 
 all:
-	$(JAVAC) $(APP).java AttributePicker.java
+	$(JAVAC) $(JAVA_FILES)
 	mkdir -p com/fredollinger
 	mv *.class com/fredollinger
 
