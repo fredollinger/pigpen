@@ -11,6 +11,10 @@ class AttributePicker extends JPanel {
     public SpinnerNumberModel model;
     private JSpinner spinner;
 
+    public SpinnerNumberModel getModel(){
+        return model;
+    }
+
     public AttributePicker(String str){
         attributeText=str;
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

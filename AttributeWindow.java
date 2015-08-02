@@ -5,12 +5,15 @@ import javax.swing.event.*;
 
 class AttributeWindow extends JFrame {
 
-    public static AttributePicker makeAttribute(String str){
+    public Integer extraPoints;
+
+    public AttributePicker makeAttribute(String str){
 	final AttributePicker picker = new AttributePicker( str );
 
 	picker.model.addChangeListener( new ChangeListener() {
             public void stateChanged( ChangeEvent e ) {
-	        System.out.println(picker.attributeText);
+		//e.getSource().getValue();
+	        System.out.println(e.getSource().getClass().getName());
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
 
@@ -18,6 +21,7 @@ class AttributeWindow extends JFrame {
     }
 
     public AttributeWindow(){
+	extraPoints=15;
 	JFrame frame = new JFrame( "Hello, Java" );
         JPanel listPane = new JPanel();
         listPane.setLayout(new BoxLayout(listPane, BoxLayout.LINE_AXIS));
