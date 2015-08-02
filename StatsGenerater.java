@@ -4,6 +4,8 @@ import javax.swing.*;
 public class StatsGenerater{
   
     public static void main ( String[] args ){
+        AttributeWindow win = new AttributeWindow();
+
 /*
 	JFrame frame = new JFrame( "Hello, Java" );
         JPanel listPane = new JPanel();
@@ -30,5 +32,6 @@ public class StatsGenerater{
 	frame.setSize( 300, 300 );
 	frame.setVisible( true );
 */
+
     } // END main
 } // END class StatsGenerater
