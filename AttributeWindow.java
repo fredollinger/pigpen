@@ -2,7 +2,7 @@ package com.fredollinger;
 
 import javax.swing.*;
 import javax.swing.event.*;
-
+ 
 class AttributeWindow extends JFrame {
 
     public Integer extraPoints;
@@ -12,8 +12,13 @@ class AttributeWindow extends JFrame {
 
 	picker.model.addChangeListener( new ChangeListener() {
             public void stateChanged( ChangeEvent e ) {
+		//static int oldValue = model.getMinimum();
+		//static int oldValue;
+		SpinnerNumberModel model = (SpinnerNumberModel) e.getSource();
+		//int newValue = model.getValue() - oldValue;
 		//e.getSource().getValue();
-	        System.out.println(e.getSource().getClass().getName());
+	        //System.out.println(e.getSource().getClass().getName());
+	        //System.out.println(newValue);
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
 

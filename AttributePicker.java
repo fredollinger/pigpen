@@ -8,10 +8,10 @@ class AttributePicker extends JPanel {
 	//
     
     public String attributeText;
-    public SpinnerNumberModel model;
+    public AttributeModel model;
     private JSpinner spinner;
 
-    public SpinnerNumberModel getModel(){
+    public AttributeModel getModel(){
         return model;
     }
 
@@ -19,7 +19,7 @@ class AttributePicker extends JPanel {
         attributeText=str;
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         JLabel label = new JLabel(str);
-        model = new SpinnerNumberModel(10, 10, 15, 1);
+        model = new AttributeModel(10, 10, 15, 1);
 	spinner = new JSpinner(model);
         add(label);
         add(spinner);

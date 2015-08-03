@@ -1,6 +1,6 @@
 APP=StatsGenerater
 JAVAC=/opt/java/bin/javac
-JAVA_FILES=$(APP).java AttributePicker.java AttributeWindow.java
+JAVA_FILES=$(APP).java AttributePicker.java AttributeWindow.java AttributeModel.java
 
 all:
 	$(JAVAC) $(JAVA_FILES)
