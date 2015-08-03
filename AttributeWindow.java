@@ -12,12 +12,13 @@ class AttributeWindow extends JFrame {
 
 	picker.model.addChangeListener( new ChangeListener() {
             public void stateChanged( ChangeEvent e ) {
-		//static int oldValue = model.getMinimum();
-		//static int oldValue;
 		AttributeModel model = (AttributeModel) e.getSource();
+		double newValue = (double)model.getValue();
+		double changed = newValue - model.oldValue;
+                model.oldValue = newValue;
 		//e.getSource().getValue();
 	        //System.out.println(e.getSource().getClass().getName());
-	        //System.out.println(model.changed);
+	        System.out.println(changed);
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
 
