@@ -14,11 +14,10 @@ class AttributeWindow extends JFrame {
             public void stateChanged( ChangeEvent e ) {
 		//static int oldValue = model.getMinimum();
 		//static int oldValue;
-		SpinnerNumberModel model = (SpinnerNumberModel) e.getSource();
-		//int newValue = model.getValue() - oldValue;
+		AttributeModel model = (AttributeModel) e.getSource();
 		//e.getSource().getValue();
 	        //System.out.println(e.getSource().getClass().getName());
-	        //System.out.println(newValue);
+	        //System.out.println(model.changed);
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
 
