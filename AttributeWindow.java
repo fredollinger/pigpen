@@ -6,6 +6,7 @@ import javax.swing.event.*;
 class AttributeWindow extends JFrame {
 
     public Integer extraPoints;
+    JLabel pointsLabel;
 
     public AttributePicker makeAttribute(String str){
 	final AttributePicker picker = new AttributePicker( str );
@@ -15,10 +16,43 @@ class AttributeWindow extends JFrame {
 		AttributeModel model = (AttributeModel) e.getSource();
 		double newValue = (double)model.getValue();
 		double changed = newValue - model.oldValue;
+
+	        System.out.println("changed: [" + changed + "]");
+	        System.out.println("extraPoints: [" + extraPoints + "]");
+
+		if ( changed < 1 && changed > -1 ){
+	            System.out.println("ONE");
+		    return;
+		}
+		else if ( extraPoints > 0 && changed > 0 ){
+	            System.out.println("TWO");
+		    extraPoints--;
+		    pointsLabel.setText(extraPoints.toString());
+		}
+		else if ( extraPoints < 19 && changed < 0 ){
+	            System.out.println("THREE");
+		    extraPoints++;
+		    pointsLabel.setText(extraPoints.toString());
+		}
+		else if ( extraPoints < 1 && changed > 0 ){
+	            System.out.println("FOUR");
+		    model.setValue(model.oldValue);
+		    return;
+		}
+		else {
+	            System.out.println("FIVE");
+		    return;
+		}
+		/*
+                else if ( extraPoints < 18 && changed < 0 ){
+		    extraPoints--;
+		    model.setValue(newValue-1);
+		}
+		*/
+
                 model.oldValue = newValue;
-		//e.getSource().getValue();
-	        //System.out.println(e.getSource().getClass().getName());
-	        System.out.println(changed);
+
+	        //System.out.println(changed);
 	    } // END stateChanged()
 	}); // END model.AddChangeListener()
 
@@ -31,7 +65,7 @@ class AttributeWindow extends JFrame {
         JPanel listPane = new JPanel();
         listPane.setLayout(new BoxLayout(listPane, BoxLayout.LINE_AXIS));
 	JLabel label = new JLabel( "Total Stats:", JLabel.CENTER );
-	JLabel label2 = new JLabel( "15", JLabel.CENTER );
+	pointsLabel = new JLabel( extraPoints.toString(), JLabel.CENTER );
 
 	AttributePicker strPicker = makeAttribute("STR");
 	AttributePicker dexPicker = makeAttribute("DEX");
@@ -42,7 +76,7 @@ class AttributeWindow extends JFrame {
 
 	frame.add(listPane);
 	listPane.add(label);
-	listPane.add(label2);
+	listPane.add(pointsLabel);
 	listPane.add(strPicker);
 	listPane.add(dexPicker);
 	listPane.add(conPicker);
